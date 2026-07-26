@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Change to the Tandem Tales directory.
+cd /opt/tt
+# Start the server.
+java \
+  -Djavax.net.ssl.keyStore="tt-keystore.p12" \
+  -Djavax.net.ssl.keyStorePassword="changeit" \
+  -jar tt-server.jar \
+  -l /var/log/tt/log.txt \
+  -s /var/log/tt/sessions \
+  -db database.json \
+  -p 9005

@@ -1,0 +1,11 @@
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - "80:80"
+      - "443:443"
+      - "9005:9005"
+      - "9006:9006"
+    volumes:
+      - ./root/var/www/tt/:/var/www/tt

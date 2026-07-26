@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Create a new screen session named 'tt' if one does not exist.
+screen -ls | grep -q "tt" || screen -dmS tt
+# Start Tandem Tales in that session.
+screen -S tt -p 0 -X stuff "/usr/local/bin/start_tt_foreground\n"

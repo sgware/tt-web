@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Tandem Tales WebSockets Test</title>
+		<script>
+			// Open a WebSocket. Websockify only supports binary frames.
+			const socket = new WebSocket("wss://localhost:9006", "binary");
+			socket.binaryType = "arraybuffer";
+			// When the WebSocket receives a message...
+			socket.onmessage = (event) => {
+				output = document.getElementById("output");
+				const message = new TextDecoder().decode(event.data);
+				const object = JSON.parse(message);
+				const string = JSON.stringify(object, null, 2);
+				output.innerHTML += string;
+			};
+		</script>
+	</head>
+	<body>
+		<h1>Tandem Tales WebSockets Test</h1>
+		<pre id="output"></pre>
+	</body>
+</html>

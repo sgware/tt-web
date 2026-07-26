@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# If a screen session named 'tt' exists, tell Tandem Tales to shut down.
+if screen -ls | grep -q "tt"; then
+	screen -S tt -p 0 -X stuff "stop\n"
+fi

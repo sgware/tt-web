@@ -1,0 +1,12 @@
+{
+  "worlds": {
+    "tutorial": {
+      "path": "worlds/tutorial.json",
+      "listed": true,
+      "name": "tutorial",
+      "title": "Tutorial",
+      "description": "A simple story about buying a drink that will teach you how to play."
+    }
+  },
+  "agents": {}
+}

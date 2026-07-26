@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# If a screen session named 'ws' exists, stop it.
+if screen -ls | grep -q "ws"; then
+	screen -X -S ws quit
+fi

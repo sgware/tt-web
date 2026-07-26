@@ -1,0 +1,4 @@
+#!/bin/sh
+git clone https://github.com/sgware/tt-server.git /tmp/tt-server
+cp -f /tmp/tt-server/build/jar/tt-server.jar /opt/tt/tt-server.jar
+rm -rf /tmp/*

@@ -1,0 +1,5 @@
+#!/bin/sh
+git clone https://github.com/sgware/tt-server.git /tmp/tt-server
+mkdir /opt/tt/worlds
+cp -rf /tmp/tt-server/worlds/* /opt/tt/worlds
+rm -rf /tmp/*

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Make sure Python trusts the local Certificate Authority.
+export SSL_CERT_FILE=/etc/ssl/certs/tt-fullchain.pem
+# Use websockify to translate WebSockets on port 9006 to TLS on port 9005.
+websockify 9006 localhost:9005 \
+  -v \
+  --ssl-target \
+  --ssl-only \
+  --cert=/etc/ssl/certs/tt-public.pem \
+  --key=/etc/ssl/private/tt-private.pem

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Create a new screen session named 'ws' if one does not exist.
+screen -ls | grep -q "ws" || screen -dmS ws
+# Start websockify in that session.
+screen -S ws -p 0 -X stuff "/usr/local/bin/start_ws_foreground\n"
