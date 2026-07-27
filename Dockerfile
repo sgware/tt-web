@@ -48,5 +48,6 @@ RUN a2dissite 000-default.conf
 RUN a2ensite tt
 
 # When this image runs non-interactively, start Apache, then start Websockify,
-# then start Tandem Tales in the foreground so the container does not exit.
+# in the background, then start Tandem Tales in the foreground, optionally
+# adding an agent to its database if the details are in environment variables.
 CMD ["sh", "-c", "apache2ctl start && start_ws && start_tt_with_agent"]
