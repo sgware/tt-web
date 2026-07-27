@@ -4,13 +4,19 @@
 cd /opt/tt
 # If agent details appear in environment variables, add the agent to the database.
 if [ -n "$name" ]; then
-/usr/local/bin/start_tt_foreground << EOF
-add agent $name
-set agent $name password $password
-set agent $name title $title
-set agent $name description $description
-list agent $name
-EOF
+  command="add agent $name\n"
+  if [ -n "$password" ]; then
+    command="${command}set agent $name password $password\n"
+  fi
+  if [ -n "$title" ]; then
+    command="${command}set agent $name title $title\n"
+  fi
+  if [ -n "$description" ]; then
+    command="${command}set agent $name description $description\n"
+  fi
+  command="${command}list agent $name\n"
+  echo "\ncommand:\n$command\n"
+  echo "$command" | /usr/local/bin/start_tt_foreground
 else
-/usr/local/bin/start_tt_foreground
+  /usr/local/bin/start_tt_foreground
 fi
