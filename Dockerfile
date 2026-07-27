@@ -1,3 +1,10 @@
+#==============================================================================
+# Tandem Tales Web Server
+# 
+# Defines a server with everything necessary to serve webpages over HTTP and
+# HTTPS, run the Tandem Tales server, and run the Tandem Tales web client.
+#==============================================================================
+
 # Start with the Ubuntu operating system.
 FROM ubuntu:26.04
 
@@ -49,5 +56,5 @@ RUN a2ensite tt
 
 # When this image runs non-interactively, start Apache, then start Websockify,
 # in the background, then start Tandem Tales in the foreground, optionally
-# adding an agent to its database if the details are in environment variables.
-CMD ["sh", "-c", "apache2ctl start && start_ws && start_tt_with_agent"]
+# updating the database with if certain environment variables are set.
+CMD ["sh", "-c", "apache2ctl start && start_ws && start_tt_with_db_updates"]

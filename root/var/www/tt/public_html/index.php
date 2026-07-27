@@ -7,9 +7,9 @@
 	<body>
 		<h1>Tandem Tales Web Server</h1>
 <?php
-$world = getenv('world') ?? '';
-$role = getenv('role') ?? '';
-$partner = getenv('partner') ?? '';
+$world = getenv('play_world') ?? '';
+$role = getenv('play_role') ?? '';
+$partner = getenv('play_partner') ?? '';
 $url = "https://localhost/play/?world=$world&role=$role&partner=$partner";
 $text = 'Check here to play ';
 $text .= $world == '' ? 'in any world ' : "in world \"$world\" ";

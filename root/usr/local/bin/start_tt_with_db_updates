@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# These commands will be sent to the server when it starts.
+command=""
+
+# Add an agent to the database.
+if [ -n "$agent_name" ]; then
+  command="${command}add agent $agent_name\n"
+  if [ -n "$agent_password" ]; then
+    command="${command}set agent $agent_name password $agent_password\n"
+  fi
+  if [ -n "$agent_title" ]; then
+    command="${command}set agent $agent_name title $agent_title\n"
+  fi
+  if [ -n "$agent_description" ]; then
+    command="${command}set agent $agent_name description $agent_description\n"
+  fi
+  command="${command}list agent $agent_name\n"
+fi
+
+# Start the server.
+echo "$command" | /usr/local/bin/start_tt_foreground
