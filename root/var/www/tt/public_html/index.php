@@ -6,7 +6,30 @@
 	</head>
 	<body>
 		<h1>Tandem Tales Web Server</h1>
-		<p><a href="https://localhost/play">https://localhost/play</a></p>
+		<p><a href="https://localhost/play">Click here to play.</a></p>
+<?php
+$world = getenv('world');
+$role = getenv('role');
+$partner = getenv('partner');
+if($world != null || $role != null || $partner != null) {
+	$url = 'https://localhost/play/?password=false';
+	$text = 'Check here to play';
+	if($world != null) {
+		$url .= "&world=$world";
+		$text .= " in world \"$world\"";
+	}
+	if($role != null) {
+		$url .= "&role=$role";
+		$text .= " as \"$role\"";
+	}
+	if($partner != null) {
+		$url .= "&partner=$partner";
+		$text .= " with partner \"$partner\"";
+	}
+	$text .= '.';
+	echo("<p><a href=\"$url\">$text</a></p>");
+}
+?>
 		<p>System Information: <?php echo(php_uname()); ?><p>
 	</body>
 </html>
