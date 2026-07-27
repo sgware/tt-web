@@ -49,4 +49,4 @@ RUN a2ensite tt
 
 # When this image runs non-interactively, start Apache, then start Websockify,
 # then start Tandem Tales in the foreground so the container does not exit.
-CMD ["sh", "-c", "apache2ctl start && start_ws && start_tt_foreground"]
+CMD ["sh", "-c", "apache2ctl start && start_ws && start_tt_with_agent"]

@@ -4,7 +4,7 @@
       "name": "tutorial",
       "title": "Tutorial",
       "description": "A simple story about buying a drink that will teach you how to play.",
-	  "path": "worlds/tutorial.json",
+      "path": "worlds/tutorial.json",
       "listed": true
     }
   },

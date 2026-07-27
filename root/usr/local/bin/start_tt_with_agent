@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Change to the Tandem Tales directory.
+cd /opt/tt
+# If agent details appear in environment variables, add the agent to the database.
+if [ -n "$name" ]; then
+/usr/local/bin/start_tt_foreground << EOF
+add agent $name
+set agent $name password $password
+set agent $name title $title
+set agent $name description $description
+list agent $name
+EOF
+else
+/usr/local/bin/start_tt_foreground
+fi
