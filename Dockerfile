@@ -1,5 +1,5 @@
 #===============================================================================
-# Tandem Tales Web Server
+# Tandem Tales Web Server Docker Image
 # 
 # Defines a server with everything necessary to serve webpages over HTTP and
 # HTTPS, run the Tandem Tales server, and run the Tandem Tales web client.

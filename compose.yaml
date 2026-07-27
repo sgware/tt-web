@@ -1,13 +1,25 @@
+#===============================================================================
+# Tandem Tales Web Server Compose Configuration
+# 
+# Defines how to build the Tandem Tales web server using Docker Compose.
+#===============================================================================
 services:
+  # The server includes both a web server and the Tandem Tales server software.
   server:
+    # Use the Dockerfile in this directory to build the image.
     build:
       context: .
+    # Environment variables in this file will be defined at container run time.
     env_file:
       - .env
+    # Allow the container to accept incoming network connections on these ports.
     ports:
-      - "80:80"
-      - "443:443"
-      - "9005:9005"
-      - "9006:9006"
+      - "80:80"     # HTTP
+      - "443:443"   # HTTPS
+      - "9005:9005" # Tandem Tales
+      - "9006:9006" # Tandem Tales (WebSockets)
+    # Volumes are local folders mounted to the container. The files in a volume
+    # can be edited while the container runs.
     volumes:
+      # Apache Tandem Tales website directory
       - ./root/var/www/tt/:/var/www/tt
