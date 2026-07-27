@@ -27,7 +27,7 @@ if($world != null || $role != null || $partner != null) {
 		$text .= " with partner \"$partner\"";
 	}
 	$text .= '.';
-	echo("<p><a href=\"$url\">$text</a></p>");
+	echo("\t\t<p><a href=\"$url\">$text</a></p>\n");
 }
 ?>
 		<p>System Information: <?php echo(php_uname()); ?><p>
