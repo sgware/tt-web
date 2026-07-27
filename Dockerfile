@@ -1,9 +1,9 @@
-#==============================================================================
+#===============================================================================
 # Tandem Tales Web Server
 # 
 # Defines a server with everything necessary to serve webpages over HTTP and
 # HTTPS, run the Tandem Tales server, and run the Tandem Tales web client.
-#==============================================================================
+#===============================================================================
 
 # Start with the Ubuntu operating system.
 FROM ubuntu:26.04
