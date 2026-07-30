@@ -7,9 +7,17 @@
 	<body>
 		<h1>Tandem Tales Web Server</h1>
 <?php
+// Get environment variables.
 $world = getenv('play_world') ?? '';
 $role = getenv('play_role') ?? '';
+if($role == '' && getenv('agent_role') !== false) {
+	if(getenv('agent_role') == 'PLAYER')
+		$role = 'GAME_MASTER';
+	else if(getenv('agent_role') == 'GAME_MASTER')
+		$role = 'PLAYER';
+}
 $partner = getenv('play_partner') ?? '';
+// Generate quick play link.
 $url = "https://localhost/play/?world=$world&role=$role&partner=$partner";
 $text = 'Check here to play ';
 $text .= $world == '' ? 'in any world ' : "in world \"$world\" ";

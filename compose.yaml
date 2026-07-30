@@ -6,9 +6,10 @@
 services:
   # The server includes both a web server and the Tandem Tales server software.
   server:
+    # The name of the image.
+    image: tt-web
     # Use the Dockerfile in this directory to build the image.
-    build:
-      context: .
+    build: .
     # Environment variables in this file will be defined at container run time.
     env_file:
       - .env
