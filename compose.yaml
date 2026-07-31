@@ -22,5 +22,7 @@ services:
     # Volumes are local folders mounted to the container. The files in a volume
     # can be edited while the container runs.
     volumes:
-      # Apache Tandem Tales website directory
+      # If you want to provide your own SSL keys, use this volume.
+      # - /path/on/your/computer:/etc/tt/certs
+      # The Apache website root is here.
       - ./root/var/www/tt/:/var/www/tt

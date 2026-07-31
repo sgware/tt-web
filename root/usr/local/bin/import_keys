@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# Import the server's public and private keys into a Java keystore.
+# Import public and private SSL keys into a Java-compatible keystore.
 openssl pkcs12 -export \
-  -in /etc/ssl/certs/tt-fullchain.pem \
-  -inkey /etc/ssl/private/tt-private.pem \
-  -out /opt/tt/tt-keystore.p12 \
+  -in /etc/tt/certs/tt-fullchain.pem \
+  -inkey /etc/tt/certs/tt-private.pem \
+  -out /etc/tt/certs/tt-keystore.p12 \
   -name tt \
   -caname root \
   -passout pass:changeit

@@ -5,38 +5,38 @@ openssl req \
   -x509 \
   -newkey rsa:2048 \
   -nodes \
-  -keyout /etc/ssl/private/tt-ca.key \
-  -out /etc/ssl/certs/tt-chain.pem \
+  -keyout /etc/tt/certs/tt-ca.pem \
+  -out /etc/tt/certs/tt-chain.pem \
   -days 36500 \
   -subj "/CN=localhost" \
   -addext "keyUsage=critical,digitalSignature,keyCertSign"
 
 # Generate the server's private key.
 openssl genrsa \
-  -out /etc/ssl/private/tt-private.pem
+  -out /etc/tt/certs/tt-private.pem
 
 # Create a Certificate Signing Request.
 openssl req \
   -new \
-  -key /etc/ssl/private/tt-private.pem \
-  -out /etc/ssl/certs/tt.csr \
+  -key /etc/tt/certs/tt-private.pem \
+  -out /etc/tt/certs/tt.csr \
   -subj "/CN=localhost" \
   -addext "subjectAltName=DNS:localhost,IP:127.0.0.1"
 
 # Sign the public key.
 openssl x509 \
   -req \
-  -in /etc/ssl/certs/tt.csr \
-  -CA /etc/ssl/certs/tt-chain.pem \
-  -CAkey /etc/ssl/private/tt-ca.key \
+  -in /etc/tt/certs/tt.csr \
+  -CA /etc/tt/certs/tt-chain.pem \
+  -CAkey /etc/tt/certs/tt-ca.pem \
   -CAcreateserial \
-  -out /etc/ssl/certs/tt-public.pem \
+  -out /etc/tt/certs/tt-public.pem \
   -days 36500 \
   -copy_extensions copy
 
 # Concatenate the certificate and the certificate chain.
-cat /etc/ssl/certs/tt-public.pem /etc/ssl/certs/tt-chain.pem > /etc/ssl/certs/tt-fullchain.pem
+cat /etc/tt/certs/tt-public.pem /etc/tt/certs/tt-chain.pem > /etc/tt/certs/tt-fullchain.pem
 
 # Remove the Certificate Authority files that are no longer needed.
-rm /etc/ssl/private/tt-ca.key
-rm /etc/ssl/certs/tt.csr
+rm /etc/tt/certs/tt-ca.pem
+rm /etc/tt/certs/tt.csr

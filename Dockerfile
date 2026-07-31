@@ -32,18 +32,20 @@ RUN rm -rf /var/lib/apt/lists/*
 
 # Copy custom shell scripts.
 COPY root/usr/local/bin /usr/local/bin
-
-# Create a self-signed public/private encryption key pair.
-RUN self-sign
+COPY root/entrypoint.sh /
 
 # Copy Tandem Tales server files and create log directories.
 COPY root/opt/tt /opt/tt
 RUN mkdir -p /var/log/tt/sessions
+# This folder holds the public and private keys used by Apache and the Tandem
+# Tales server. This volume can be mapped to a host directory if the user wants
+# to provide their own keys. If not, it will be mounted as an anonymous volume
+# and self-signed keys will be generated at startup. An anonymous volume
+# persists when the containers restarts but not when it is rebuilt.
+VOLUME /etc/tt/certs
 # Download the latest Tandem Tales Server and story world files from GitHub.
 RUN update_tt_server
 RUN update_tt_worlds
-# Import the server's public and private keys into a keystore Java can use.
-RUN import_keys
 
 # Copy Apache configuration files.
 COPY root/etc/apache2 /etc/apache2
@@ -57,4 +59,4 @@ RUN a2ensite tt
 # When this image runs non-interactively, start Apache, then start Websockify,
 # in the background, then start Tandem Tales in the foreground, optionally
 # updating the database with if certain environment variables are set.
-CMD ["sh", "-c", "apache2ctl start && start_ws && start_tt_with_db_updates"]
+CMD ["sh", "-c", "/entrypoint.sh"]
