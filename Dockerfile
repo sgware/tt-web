@@ -43,15 +43,16 @@ RUN mkdir -p /var/log/tt/sessions
 # and self-signed keys will be generated at startup. An anonymous volume
 # persists when the containers restarts but not when it is rebuilt.
 VOLUME /etc/tt/certs
-# Download the latest Tandem Tales Server, story worlds, and web player from GitHub.
+# Download the latest Tandem Tales Server and story worlds from GitHub.
 RUN update_tt_server
 RUN update_tt_worlds
-RUN update_tt_web_player
 
 # Copy Apache configuration files.
 COPY root/etc/apache2 /etc/apache2
 # Copy website content.
 COPY root/var/www /var/www
+# Download the latest Tandem Tales web player from GitHub.
+RUN update_tt_web_player
 # Disable the default Apache site.
 RUN a2dissite 000-default.conf
 # Enable the Tandem Tales website.
