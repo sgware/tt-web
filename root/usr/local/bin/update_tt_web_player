@@ -1,0 +1,6 @@
+#!/bin/sh
+git clone -b dist https://github.com/sgware/tt-web-player.git /tmp/tt-web-player
+rm -rf /var/www/tt/public_html/play
+mkdir /var/www/tt/public_html/play
+cp -rf /tmp/tt-web-player/* /var/www/tt/public_html/play
+rm -rf /tmp/tt-web-player

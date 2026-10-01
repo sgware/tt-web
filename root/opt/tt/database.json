@@ -6,6 +6,13 @@
       "description": "A simple story about buying a drink that will teach you how to play.",
       "path": "worlds/tutorial.json",
       "listed": true
+    },
+    "crown": {
+      "name": "crown",
+      "title": "The Crown",
+      "description": "The crown has been stolen! Who will be the next ruler of the kingdom?",
+      "path": "worlds/crown.json",
+      "listed": true
     }
   },
   "agents": {
