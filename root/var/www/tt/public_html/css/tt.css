@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/*!
+ * Tandem Tales CSS
+ */
+
+/* Reduce padding around main page content. */
+body > header, 
+body > main, 
+body > footer {
+	padding-right: 4rem;
+	padding-left: 4rem;
+}
+
+/* Justify normal text. */
+p {
+	text-align: justify;
+}
+
+/* Set the size of the Tandem Tales logo. */
+#logo {
+	height: 1.5rem;
+	width: auto;
+	object-fit: contain;
+}
+
+/* Invert the colors of the logo if the page is in dark mode. */
+@media (prefers-color-scheme: dark) {
+	#logo {
+		filter: invert(1);
+	}
+}

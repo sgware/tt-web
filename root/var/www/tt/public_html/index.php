@@ -16,7 +16,7 @@
 		</style>
 	</head>
 	<body>
-		<img src="logo.png" alt="Tandem Tales" style="transform: scale(0.5);"/>
+		<img src="/img/logo.png" alt="Tandem Tales" style="transform: scale(0.5);"/>
 <?php
 // Get environment variables.
 $world = getenv('play_world') ?? '';
