@@ -13,9 +13,13 @@ It includes the following:
   private key used for encryption.
 - The [Tandem Tales Server](http://github.com/sgware/tt-server), which runs in
   [Java](http://www.java.com).
-- [websockify](http://github.com/novnc/websockify), which is written in
-  [Python](http://www.python.org), to allow JavaScript WebSockets to connect to
-  Tandem Tales from a web browser.
+- [websockify](http://github.com/novnc/websockify), to allow JavaScript
+  WebSockets to connect to Tandem Tales from a web browser, which runs in
+	[Python](https://www.python.org/).
+- The [Tandem Tales Test Agent](https://github.com/sgware/tt-test-agent), so
+  there is always at least one simple agent available for testing.
+- The [Tandem Tales Web Player](https://github.com/sgware/tt-web-player), which
+  lets you play Tandem Tales via a web browser.
 
 Because this server requires several different technologies to be properly
 configured, it is published as a [Docker](http://docker.com) image, which is
