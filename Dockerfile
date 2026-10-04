@@ -50,6 +50,8 @@ VOLUME /etc/tt/certs
 # Download the latest Tandem Tales Server and story worlds from GitHub.
 RUN update_tt_server
 RUN update_tt_worlds
+# Download the Tandem Tales Test Agent from GitHub.
+RUN update_tt_test_agent
 
 # Copy Apache configuration files.
 COPY root/etc/apache2 /etc/apache2
@@ -64,5 +66,5 @@ RUN a2ensite tt
 
 # When this image runs non-interactively, start Apache, then start Websockify,
 # in the background, then start Tandem Tales in the foreground, optionally
-# updating the database with if certain environment variables are set.
+# updating the database if certain environment variables are set.
 CMD ["sh", "-c", "/entrypoint.sh"]

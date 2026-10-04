@@ -16,6 +16,14 @@
     }
   },
   "agents": {
+    "test": {
+      "name": "test",
+      "title": "Test",
+      "description": "Makes random choices quickly and always agrees to proposals.",
+      "listed": true,
+      "salt": "dIDK5tUmgMptB/SySBdoFA\u003d\u003d",
+      "hash": "AjLUm5sctQh0GfIPoTFvg6VafbyM5r/NY71uKqTbWWZ4Cur/uw/vQ80Phq4otTHjzClk6B1wjXt8VWrAViqo+Q\u003d\u003d"
+    },
     "web": {
       "name": "web",
       "title": "Human",

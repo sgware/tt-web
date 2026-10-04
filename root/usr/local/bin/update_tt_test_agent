@@ -1,0 +1,5 @@
+#!/bin/sh
+git clone https://github.com/sgware/tt-test-agent.git /tmp/tt-test-agent
+mkdir /opt/tt/agents/test
+cp -rf /tmp/tt-test-agent/build/jar/tt-test-agent.jar /opt/tt/agents/test/tt-test-agent.jar
+rm -rf /tmp/tt-test-agent
