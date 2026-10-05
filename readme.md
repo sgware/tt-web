@@ -20,8 +20,6 @@ It includes the following:
 	[Python](https://www.python.org/).
 - The [Tandem Tales Web Player](https://github.com/sgware/tt-web-player), which
   lets you play Tandem Tales via a web browser.
-- Some tools for compiling web pages from simple markdown source, including
-  [Pandoc](https://pandoc.org/) and [Tidy](https://www.html-tidy.org/).
 
 Because this server requires several different technologies to be properly
 configured, it is published as a [Docker](http://docker.com) image, which is

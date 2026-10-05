@@ -26,10 +26,6 @@ RUN apt install -y git
 RUN apt install -y openjdk-25-jre
 # Websockify maps secure WebSockets to standard TLS sockets.
 RUN apt install -y websockify
-# Pandoc converts markdown files into HTML.
-RUN apt install -y pandoc
-# Tidy improves the formatting of HTML files.
-RUN apt install -y tidy
 # Clean up after installing software.
 RUN apt clean
 RUN rm -rf /var/lib/apt/lists/*

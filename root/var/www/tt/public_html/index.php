@@ -1,23 +1,14 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 	<head>
-		<meta charset="UTF-8">
-		<title>Tandem Tales Web Server</title>
-		<style>
-			body {
-				font-family: sans-serif;
-				text-align: center;
-			}
-			footer {
-				margin-top: 5em;
-				font-size: 70%;
-				color: Gray;
-			}
-		</style>
+		<title>Tandem Tales</title>
+		<?php include($_SERVER['DOCUMENT_ROOT'].'/../template/head.php'); ?>
 	</head>
 	<body>
-		<img src="/img/logo.png" alt="Tandem Tales" style="transform: scale(0.5);"/>
+		<?php include($_SERVER['DOCUMENT_ROOT'].'/../template/nav.php'); ?>
+		<main>
 <?php
+
 // Get environment variables.
 $world = getenv('play_world') ?? '';
 $role = getenv('play_role') ?? '';
@@ -28,6 +19,7 @@ if($role == '' && getenv('agent_role') !== false) {
 		$role = 'PLAYER';
 }
 $partner = getenv('play_partner') ?? '';
+
 // Generate quick play link.
 if($world != '' || $role != '' || $partner != '') {
 	$url = "https://localhost/play/?world=$world&role=$role&partner=$partner";
@@ -36,12 +28,12 @@ if($world != '' || $role != '' || $partner != '') {
 	$text .= $role == '' ? 'as either role ' : "as \"$role\" ";
 	$text .= $partner == '' ? 'with any partner' : "with partner \"$partner\"";
 	$text .= '.';
-	echo("\t\t<p><a href=\"$url\">$text</a></p>\n");
+	echo("\t\t\t<p><a href=\"$url\">$text</a></p>\n");
 }
+
 ?>
-		<p><a href="https://localhost/play">Click here to choose your own game settings.</a></p>
-		<footer>
-			<p>System Information: <?php echo(php_uname()); ?><p>
-		</footer>
+			<p><a href="https://localhost/play">Click here to choose your own game settings.</a></p>
+		</main>
+		<?php include($_SERVER['DOCUMENT_ROOT'].'/../template/footer.php'); ?>
 	</body>
 </html>
