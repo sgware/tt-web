@@ -2,10 +2,10 @@
 <html>
 	<head>
 		<title>Tandem Tales</title>
-		<?php include($_SERVER['DOCUMENT_ROOT'].'/../template/head.php'); ?>
+		<?php include($_SERVER['tt_head']); ?>
 	</head>
 	<body>
-		<?php include($_SERVER['DOCUMENT_ROOT'].'/../template/nav.php'); ?>
+		<?php include($_SERVER['tt_header']); ?>
 		<main>
 			<p>Tandem Tales is a website that lets you play an interactive story with another person or an AI agent. It is free and anonymous, but we record the choices you make and questions you answer for research.</p>
 			<ul>
@@ -55,6 +55,6 @@
 			<p>By playing on this website, you agree that you are at least 18 years old, that you are playing of your own free will, and that you are aware of the minimal risks. You agree that anonymous data about your stories may be released to the public.</p>
 			<p>This website is provided with no warranty. There is no guarantee that this website will always function perfectly or without bugs.</p>
 		</main>
-		<?php include($_SERVER['DOCUMENT_ROOT'].'/../template/footer.php'); ?>
+		<?php include($_SERVER['tt_footer']); ?>
 	</body>
 </html>

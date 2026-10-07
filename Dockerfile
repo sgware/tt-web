@@ -51,6 +51,8 @@ RUN update_tt_test_agent
 
 # Copy Apache configuration files.
 COPY root/etc/apache2 /etc/apache2
+# Copy PHP configuration files.
+COPY root/etc/php /etc/php
 # Copy website content.
 COPY root/var/www /var/www
 # Download the latest Tandem Tales web player from GitHub.

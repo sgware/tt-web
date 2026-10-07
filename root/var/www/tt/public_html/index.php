@@ -2,10 +2,10 @@
 <html>
 	<head>
 		<title>Tandem Tales</title>
-		<?php include($_SERVER['DOCUMENT_ROOT'].'/../template/head.php'); ?>
+		<?php include($_SERVER['tt_head']); ?>
 	</head>
 	<body>
-		<?php include($_SERVER['DOCUMENT_ROOT'].'/../template/nav.php'); ?>
+		<?php include($_SERVER['tt_header']); ?>
 		<main>
 <?php
 
@@ -34,6 +34,6 @@ if($world != '' || $role != '' || $partner != '') {
 ?>
 			<p><a href="https://localhost/play">Click here to choose your own game settings.</a></p>
 		</main>
-		<?php include($_SERVER['DOCUMENT_ROOT'].'/../template/footer.php'); ?>
+		<?php include($_SERVER['tt_footer']); ?>
 	</body>
 </html>
