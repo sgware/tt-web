@@ -10,6 +10,8 @@ FROM ubuntu:26.04
 
 # Update packages.
 RUN apt update
+# ACL Tools allow more control over who has access to which files.
+RUN apt install -y acl
 # GNU Nano is a simple text editor similar to Notepad.
 RUN apt install -y nano
 # GNU Screen runs commands in detachable terminals.
@@ -34,15 +36,23 @@ RUN rm -rf /var/lib/apt/lists/*
 COPY root/usr/local/bin /usr/local/bin
 COPY root/entrypoint.sh /
 
-# Copy Tandem Tales server files and create log directories.
-COPY root/opt/tt /opt/tt
-RUN mkdir -p /var/log/tt/sessions
 # This folder holds the public and private keys used by Apache and the Tandem
 # Tales server. This volume can be mapped to a host directory if the user wants
 # to provide their own keys. If not, it will be mounted as an anonymous volume
 # and self-signed keys will be generated at startup. An anonymous volume
 # persists when the containers restarts but not when it is rebuilt.
 VOLUME /etc/tt/certs
+
+# Copy Tandem Tales server files.
+COPY root/opt/tt /opt/tt
+# Create session log file directory and grant PHP access.
+RUN mkdir -p /var/log/tt/sessions
+RUN setfacl -R -m u:www-data:rwX /var/log/tt/sessions
+RUN setfacl -R -d -m u:www-data:rwX /var/log/tt/sessions
+# Create the study log files directory and grant PHP access.
+RUN mkdir -p /var/log/tt/studies/example
+RUN setfacl -R -m u:www-data:rwX /var/log/tt/studies
+RUN setfacl -R -d -m u:www-data:rwX /var/log/tt/studies
 # Download the latest Tandem Tales Server and story worlds from GitHub.
 RUN update_tt_server
 RUN update_tt_worlds
