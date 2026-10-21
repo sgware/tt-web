@@ -9,6 +9,15 @@ openssl pkcs12 -export \
   -caname root \
   -passout pass:changeit
 
+# Start with the standard trust store.
+keytool \
+  -importkeystore \
+	-srckeystore /usr/lib/jvm/java-25-openjdk-amd64/lib/security/cacerts \
+	-srcstoretype JKS \
+	-srcstorepass "changeit" \
+	-destkeystore /etc/tt/certs/tt-truststore.p12 \
+	-deststoretype PKCS12 \
+	-deststorepass "changeit"
 # Import public SSL key into a Java-compatible trust store.
 keytool \
   -importcert \

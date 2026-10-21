@@ -19,6 +19,9 @@
 				<li><a href="#what-kind-of-data-do-you-release-to-the-public">What kind of data do you release to the public?</a></li>
 				<li><a href="#are-there-any-content-or-trigger-warnings">Are there any content or trigger warnings?</a></li>
 				<li><a href="#are-there-any-other-risks">Are there any other risks?</a></li>
+				<li><a href="#are-there-any-benefits">Are there any benefits?</a></li>
+				<li><a href="#will-i-be-paid-for-my-participation">Will I be paid for my participation?</a></li>
+				<li><a href="#are-there-any-alternatives-to-playing-as-part-of-a-research-study">Are there any alternatives to playing as part of a research study?</a></li>
 				<li><a href="#terms-and-conditions">Terms and Conditions</a></li>
 			</ul>
 			<hr>
@@ -40,9 +43,9 @@
 			<p>No, you cannot send messages to your partner, and they cannot send messages to you. The only way you can interact with your partner is by choosing what to do next from the list of choices.</p>
 			<p>Unless you were told in advance, there is no way to know if your partner is a person or an AI agent.</p>
 			<h4 id="what-data-do-you-collect">What data do you collect?</h4>
-			<p>We collect the name of the story you play, the choices you and your partner make, and the ending of the story. If questions pop up during or after the story, we record your answers.</p>
+			<p>We collect the name of the story you play, the choices you and your partner make, and the ending of the story. If questions pop up during or after the story, we record your answers. We record this data even if a story ends early.</p>
 			<p>Play is <em>anonymous</em>. We will never ask for your name, address, or other information that could identify you. You do not need to make an account on this website. We might ask for general information like your age range and level of experience with video games.</p>
-			<p>If you are playing as part of a task, we may record your ID number so we can give you credit for playing. For example, if you came here from <a href="http://prolific.com">Prolific</a>, or if you are playing as part of a classroom assignment, we might record your ID number so you can get credit for playing.</p>
+			<p>If you are playing as part of a research study, we may record your ID number so we can give you credit for playing. For example, if you came here from <a href="http://prolific.com">Prolific</a> we might record your ID number so you can get credit for playing.</p>
 			<p>Our website records the IP address of everyone who visits, but we will not release your IP address or associate it with your stories.</p>
 			<h4 id="what-kind-of-data-do-you-release-to-the-public">What kind of data do you release to the public?</h4>
 			<p>We release <a href="/data">data sets</a>, which are groups of stories that show what choices the players made. The data may include the answers that people gave to questions they were asked during or after the story. The data <em>does not</em> include the names, ID numbers, or IP addresses of the people who played those stories.</p>
@@ -51,6 +54,14 @@
 			<h4 id="are-there-any-other-risks">Are there any other risks?</h4>
 			<p>You or your partner might make choices that cause the story to take a long time. For example, if you walk around in circles many times, the story could take a long time to finish.</p>
 			<p>Stories are designed to always have an ending, but in rare cases it may be possible for you to find a mistake in the story that prevents it from ending.</p>
+			<h4 id="are-there-any-benefits">Are there benefits?</h4>
+			<p>We hope you find these interactive stories fun, but there are no other direct benefits to you.</p>
+			<p>Each time you play you are contributing valuable data to scentific research about how people play games and how to design interactive stories.</p>
+			<h4 id="will-i-be-paid-for-my-participation">Will I be paid for my participation?</h4>
+			<p>If you are playing Tandem Tales as part of a research study you may be paid for your time.</p>
+			<p>The details of how much you will be paid can be found in the description of the study you are participating in. Participants are typically paid US federal minimum wage.</p>
+			<h4 id="are-there-any-alternatives-to-playing-as-part-of-a-research-study">Are there any alternatives to playing as part of a research study?</h4>
+			<p>If you are playing Tandem Tales as part of a research study the only alternatives are to choose a different study or not to participate.</p>
 			<h4 id="terms-and-conditions">Terms and Conditions</h4>
 			<p>By playing on this website, you agree that you are at least 18 years old, that you are playing of your own free will, and that you are aware of the minimal risks. You agree that anonymous data about your stories may be released to the public.</p>
 			<p>This website is provided with no warranty. There is no guarantee that this website will always function perfectly or without bugs.</p>

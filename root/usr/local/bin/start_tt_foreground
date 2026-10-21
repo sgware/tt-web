@@ -8,7 +8,7 @@ java \
   -Djavax.net.ssl.keyStore="/etc/tt/certs/tt-keystore.p12" \
   -Djavax.net.ssl.keyStorePassword="changeit" \
   -jar tt-server.jar \
-  -l /var/log/tt/log.txt \
+  -l /var/log/tt \
   -s /var/log/tt/sessions \
   -db database.json \
   -p 9005
