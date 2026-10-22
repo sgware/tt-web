@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Wait for Tandem Tales to start.
+/usr/local/bin/await_tt_start
 # Set the agent's password.
 export password="test"
 # Run the Tandem Tales Test Agent
