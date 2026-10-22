@@ -56,7 +56,7 @@
 			<p>Stories are designed to always have an ending, but in rare cases it may be possible for you to find a mistake in the story that prevents it from ending.</p>
 			<h4 id="are-there-any-benefits">Are there benefits?</h4>
 			<p>We hope you find these interactive stories fun, but there are no other direct benefits to you.</p>
-			<p>Each time you play you are contributing valuable data to scentific research about how people play games and how to design interactive stories.</p>
+			<p>Each time you play you are contributing valuable data to scientific research about how people play games and how to design interactive stories.</p>
 			<h4 id="will-i-be-paid-for-my-participation">Will I be paid for my participation?</h4>
 			<p>If you are playing Tandem Tales as part of a research study you may be paid for your time.</p>
 			<p>The details of how much you will be paid can be found in the description of the study you are participating in. Participants are typically paid US federal minimum wage.</p>
