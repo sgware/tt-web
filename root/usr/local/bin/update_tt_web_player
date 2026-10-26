@@ -1,5 +1,6 @@
 #!/bin/sh
-touch /UPDATE.TXT
+
+echo "Installing the latest Tandem Tales Web Player from GitHub..."
 git clone -b dist https://github.com/sgware/tt-web-player.git /tmp/tt-web-player
 rm -rf /var/www/tt/public_html/play
 mkdir /var/www/tt/public_html/play

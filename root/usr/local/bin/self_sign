@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Create a new Certificate Authority.
+echo "Creating a certificate authority to self-sign TLS keys..."
 openssl req \
   -x509 \
   -newkey rsa:2048 \
@@ -12,10 +13,12 @@ openssl req \
   -addext "keyUsage=critical,digitalSignature,keyCertSign"
 
 # Generate the server's private key.
+echo "Creating a private TLS key..."
 openssl genrsa \
   -out /etc/tt/certs/tt-private.pem
 
 # Create a Certificate Signing Request.
+echo "Creating a self-signed public TLS key..."
 openssl req \
   -new \
   -key /etc/tt/certs/tt-private.pem \

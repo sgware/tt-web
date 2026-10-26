@@ -8,6 +8,10 @@
 # Start with the Ubuntu operating system.
 FROM ubuntu:26.04
 
+#-------------------------------------------------------------------------------
+# Install Software
+#-------------------------------------------------------------------------------
+
 # Update packages.
 RUN apt update
 # ACL Tools allow more control over who has access to which files.
@@ -32,9 +36,9 @@ RUN apt install -y websockify
 RUN apt clean
 RUN rm -rf /var/lib/apt/lists/*
 
-# Copy custom shell scripts.
-COPY root/usr/local/bin /usr/local/bin
-COPY root/entrypoint.sh /
+#-------------------------------------------------------------------------------
+# Volumes
+#-------------------------------------------------------------------------------
 
 # This folder holds the public and private keys used by Apache and the Tandem
 # Tales server. This volume can be mapped to a host directory if the user wants
@@ -42,6 +46,18 @@ COPY root/entrypoint.sh /
 # and self-signed keys will be generated at startup. An anonymous volume
 # persists when the containers restarts but not when it is rebuilt.
 VOLUME /etc/tt/certs
+
+#-------------------------------------------------------------------------------
+# Custom Commands
+#-------------------------------------------------------------------------------
+
+# Copy custom shell scripts.
+COPY root/usr/local/bin /usr/local/bin
+COPY root/entrypoint.sh /
+
+#-------------------------------------------------------------------------------
+# Tandem Tales Server
+#-------------------------------------------------------------------------------
 
 # Copy Tandem Tales server files.
 COPY root/opt/tt /opt/tt
@@ -59,6 +75,10 @@ RUN update_tt_worlds
 # Download the Tandem Tales Test Agent from GitHub.
 RUN update_tt_test_agent
 
+#-------------------------------------------------------------------------------
+# Tandem Tales Website
+#-------------------------------------------------------------------------------
+
 # Copy Apache configuration files.
 COPY root/etc/apache2 /etc/apache2
 # Copy PHP configuration files.
@@ -71,6 +91,10 @@ RUN update_tt_web_player
 RUN a2dissite 000-default.conf
 # Enable the Tandem Tales website.
 RUN a2ensite tt
+
+#-------------------------------------------------------------------------------
+# Entrypoint
+#-------------------------------------------------------------------------------
 
 # When this image runs non-interactively, start Apache, then start Websockify,
 # in the background, then start Tandem Tales in the foreground, optionally

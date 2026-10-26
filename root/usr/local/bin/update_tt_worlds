@@ -1,4 +1,6 @@
 #!/bin/sh
+
+echo "Copying the latest Tandem Tales story worlds from GitHub..."
 git clone https://github.com/sgware/tt-server.git /tmp/tt-server
 mkdir /opt/tt/worlds
 cp -rf /tmp/tt-server/worlds/* /opt/tt/worlds

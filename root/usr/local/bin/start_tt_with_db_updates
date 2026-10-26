@@ -5,6 +5,7 @@ command=""
 
 # Add an agent to the database.
 if [ -n "$agent_name" ]; then
+	echo "When Tandem Tales starts, the agent $agent_name will be added."
   command="${command}add agent $agent_name\n"
   if [ -n "$agent_password" ]; then
     command="${command}set agent $agent_name password $agent_password\n"

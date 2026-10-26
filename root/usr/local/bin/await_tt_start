@@ -2,17 +2,22 @@
 
 # Count the number to times we have checked if the server is running.
 ATTEMPTS=0
+
 # Loop at most 10 times.
+echo "Waiting for Tandem Tales to start..."
 while [ "$ATTEMPTS" -lt 10 ]; do
 	ATTEMPTS=$((ATTEMPTS + 1))
 	# Check if the Tandem Tales server is running.
 	/usr/local/bin/check_tt_running
 	# If it is running, succeed.
 	if [ "$?" -eq 0 ]; then
+		echo "Tandem Tales has started."
 		exit 0
 	fi
 	# Wait 1 second between checks.
 	sleep 1
 done
+
 # If we never succeeded, fail.
+echo "Tandem Tales never started."
 exit 1

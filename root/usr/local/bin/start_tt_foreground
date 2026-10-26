@@ -4,6 +4,7 @@
 cd /opt/tt
 
 # Start the server.
+echo "Starting Tandem Tales server..."
 java \
   -Djavax.net.ssl.keyStore="/etc/tt/certs/tt-keystore.p12" \
   -Djavax.net.ssl.keyStorePassword="changeit" \

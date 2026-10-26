@@ -2,5 +2,6 @@
 
 # If a screen session named 'ws' exists, stop it.
 if screen -ls | grep -q "ws"; then
+	echo "Stopping websockify..."
 	screen -X -S ws quit
 fi
