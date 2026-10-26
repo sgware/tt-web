@@ -2,6 +2,7 @@
 
 # Import public and private SSL keys into a Java-compatible keystore.
 echo "Importing private and public keys into Java keystore..."
+rm -f /etc/tt/certs/tt-keystore.p12
 openssl pkcs12 -export \
   -in /etc/tt/certs/tt-fullchain.pem \
   -inkey /etc/tt/certs/tt-private.pem \
@@ -10,7 +11,9 @@ openssl pkcs12 -export \
   -caname root \
   -passout pass:changeit
 
+# Import public SSL key into a Java-compatiable truststore.
 echo "Importing public key into Java truststore..."
+rm -f /etc/tt/certs/tt-truststore.p12
 # Start with the standard trust store.
 keytool \
   -importkeystore \
@@ -20,7 +23,7 @@ keytool \
 	-destkeystore /etc/tt/certs/tt-truststore.p12 \
 	-deststoretype PKCS12 \
 	-deststorepass "changeit"
-# Import public SSL key into a Java-compatible trust store.
+# Import public key into the keystore.
 keytool \
   -importcert \
   -file /etc/tt/certs/tt-fullchain.pem \

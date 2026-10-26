@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "Starting websockify in a separate screen..."
+
 # Create a new screen session named 'ws' if one does not exist.
 screen -ls | grep -q "ws" || screen -dmS ws
 

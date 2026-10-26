@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Re-import public and private SSL keys.
+/usr/local/bin/import_keys
+
+# Restart the Tandem Tales server.
+/usr/local/bin/restart_tt
+
+# Restart Apache.
+systemctl restart apache2

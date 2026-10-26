@@ -8,7 +8,7 @@ echo "Waiting for Tandem Tales to start..."
 while [ "$ATTEMPTS" -lt 10 ]; do
 	ATTEMPTS=$((ATTEMPTS + 1))
 	# Check if the Tandem Tales server is running.
-	/usr/local/bin/check_tt_running
+	/usr/local/bin/check_tt_working
 	# If it is running, succeed.
 	if [ "$?" -eq 0 ]; then
 		echo "Tandem Tales has started."

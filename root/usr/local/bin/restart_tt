@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "Restarting Tandem Tales..."
+/usr/local/bin/stop_tt
+/usr/local/bin/await_tt_stop
+/usr/local/bin/start_tt

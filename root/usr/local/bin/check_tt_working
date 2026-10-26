@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Open a connection to the server.
+OUTPUT=$(echo | openssl s_client -connect localhost:9005 2>/dev/null)
+
+# Check if the connection was successful.
+if echo "$OUTPUT" | grep -q "BEGIN CERTIFICATE"; then
+  echo "Tandem Tales is running."
+	exit 0
+else
+  echo "Tandem Tales is not running."
+	exit 1
+fi

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "Starting Tandem Tales server in a separate screen..."
+
 # Create a new screen session named 'tt' if one does not exist.
 screen -ls | grep -q "tt" || screen -dmS tt
 

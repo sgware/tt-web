@@ -1,13 +1,11 @@
 #!/bin/sh
 
-# Open a connection to the server.
-OUTPUT=$(echo | openssl s_client -connect localhost:9005 2>/dev/null)
-
-# Check if the connection was successful.
-if echo "$OUTPUT" | grep -q "BEGIN CERTIFICATE"; then
-  echo "Tandem Tales is running."
-	exit 0
+# Find PID of the Java process running Tandem Tales.
+PID=$(pgrep -f "java.*tt-server.jar")
+if [ -n "$PID" ]; then
+    echo "Tandem Tales is running."
+    exit 0
 else
-  echo "Tandem Tales is not running."
-	exit 1
+    echo "Tandem Tales is not running."
+    exit 1
 fi
