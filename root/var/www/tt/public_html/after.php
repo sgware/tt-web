@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+include($_SERVER['tt_library']);
+// If the user came here from a study...
+if(isset($_GET['study'])) {
+	try {
+		// Load the study and user data.
+		$study = Study::load($_GET['study']);
+		$user = $study->user();
+		// If a session ID is provided, save the session to the user's log.
+		if(isset($_GET['session'])) {
+			$session = read_session_metadata($_GET['session'], $_GET['role'] ?? null);
+			$user->sessions[$session['id']] = $session;
+			$user->save();
+		}
+		// Redirect the user to the study's page.
+		header('Location: /studies/' . $study->id . '?user='. $user->id);
+		exit();
+	}
+	// If an error occurs, redirect to the error page.
+	catch(Exception $exception) {
+		header("Location: /error.php?message=" . $exception->getMessage());
+	}
+}
+?><!DOCTYPE html>
 <html>
 	<head>
 		<title>Thank You for Playing</title>

@@ -9,6 +9,17 @@
 FROM ubuntu:26.04
 
 #-------------------------------------------------------------------------------
+# Volumes
+#-------------------------------------------------------------------------------
+
+# This folder holds the public and private TLS keys used by Apache and the
+# Tandem Tales server. This volume can be mapped to a host directory if the user
+# wants to provide their own keys. If not, it will be mounted as an anonymous
+# volume and self-signed keys will be generated at startup. An anonymous volume
+# persists when the containers restarts but not when it is rebuilt.
+VOLUME /etc/tt/certs
+
+#-------------------------------------------------------------------------------
 # Install Software
 #-------------------------------------------------------------------------------
 
@@ -37,17 +48,6 @@ RUN apt clean
 RUN rm -rf /var/lib/apt/lists/*
 
 #-------------------------------------------------------------------------------
-# Volumes
-#-------------------------------------------------------------------------------
-
-# This folder holds the public and private keys used by Apache and the Tandem
-# Tales server. This volume can be mapped to a host directory if the user wants
-# to provide their own keys. If not, it will be mounted as an anonymous volume
-# and self-signed keys will be generated at startup. An anonymous volume
-# persists when the containers restarts but not when it is rebuilt.
-VOLUME /etc/tt/certs
-
-#-------------------------------------------------------------------------------
 # Custom Commands
 #-------------------------------------------------------------------------------
 
@@ -56,19 +56,31 @@ COPY root/usr/local/bin /usr/local/bin
 COPY root/entrypoint.sh /
 
 #-------------------------------------------------------------------------------
+# Tandem Tales Group
+#-------------------------------------------------------------------------------
+
+# Create a Tandem Tales group.
+RUN groupadd tt
+# Add the root user to the group.
+RUN usermod -aG tt root
+# Add the Apache and PHP user to the group so they can read and write log files.
+RUN usermod -aG tt www-data
+# Create Tandem Tales log directory and grant the Tandem Tales group access.
+RUN mkdir -p /var/log/tt
+RUN chgrp tt /var/log/tt
+RUN chmod 2775 /var/log/tt
+# Set the directory's default permissions so group members can read and write.
+RUN setfacl -R -d -m g:tt:rwx /var/log/tt
+# Create the session and study log directories.
+RUN mkdir -p /var/log/tt/sessions
+RUN mkdir -p /var/log/tt/studies/example
+
+#-------------------------------------------------------------------------------
 # Tandem Tales Server
 #-------------------------------------------------------------------------------
 
 # Copy Tandem Tales server files.
 COPY root/opt/tt /opt/tt
-# Create session log file directory and grant PHP access.
-RUN mkdir -p /var/log/tt/sessions
-RUN setfacl -R -m u:www-data:rwX /var/log/tt/sessions
-RUN setfacl -R -d -m u:www-data:rwX /var/log/tt/sessions
-# Create the study log files directory and grant PHP access.
-RUN mkdir -p /var/log/tt/studies/example
-RUN setfacl -R -m u:www-data:rwX /var/log/tt/studies
-RUN setfacl -R -d -m u:www-data:rwX /var/log/tt/studies
 # Download the latest Tandem Tales Server and story worlds from GitHub.
 RUN update_tt_server
 RUN update_tt_worlds
