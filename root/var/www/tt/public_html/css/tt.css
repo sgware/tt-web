@@ -3,6 +3,11 @@
  * Tandem Tales CSS
  */
 
+/* Reduce default font size */
+:root {
+  --pico-font-size: 100%;
+}
+
 /* Reduce padding around main page content. */
 body > header, 
 body > main, 
