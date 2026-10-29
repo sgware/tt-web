@@ -6,20 +6,22 @@ client for human play, and other resources. It serves as both a convenient way
 to run a local server for development and testing of Tandem Tales agents as well
 as documentation of how all the parts of the Tandem Tales platform fit together.
 
-It includes the following:
-- The [Tandem Tales Server](http://github.com/sgware/tt-server), which runs in
-  [Java](http://www.java.com).
-- The [Tandem Tales Test Agent](https://github.com/sgware/tt-test-agent), so
-  there is always at least one simple agent available for testing.
-- The [Apache web server](http://httpd.apache.org/) with
-  [PHP](http://www.php.net/) for server-side scripting.
-- [OpenSSL](http://www.openssl.org/) for generating a self-signed public and
-  private key used for encryption.
-- [websockify](http://github.com/novnc/websockify), to allow JavaScript
-  WebSockets to connect to Tandem Tales from a web browser, which runs in
-	[Python](https://www.python.org/).
-- The [Tandem Tales Web Player](https://github.com/sgware/tt-web-player), which
-  lets you play Tandem Tales via a web browser.
+It is built on [Ubuntu](https://ubuntu.com) and includes:
+- The [Tandem Tales Server](http://github.com/sgware/tt-server) and its story
+  worlds
+- The [Tandem Tales Test Agent](https://github.com/sgware/tt-test-agent) so
+  there is always at least one agent available for testing
+- The [Tandem Tales Web Player](https://github.com/sgware/tt-web-player) so you
+  can play Tandem Tales via a web browser
+- A [Java Runtime Environment](https://java.com) to run the Tandem Tales server
+  and test agents
+- The [Apache Web Server](http://httpd.apache.org) with
+  [PHP](http://www.php.net) to serve the Tandem Tales website and web player
+- [OpenSSL](http://www.openssl.org) for generating self-signed public and
+  private TLS keys at startup for use in SSL and HTTPS
+- [websockify](http://github.com/novnc/websockify) to allow JavaScript
+  WebSockets to connect to Tandem Tales from a web browser
+- [Python](https://www.python.org) to run websockify
 
 Because this server requires several different technologies to be properly
 configured, it is published as a [Docker](http://docker.com) image, which is
