@@ -72,6 +72,7 @@ RUN chmod 2775 /var/log/tt
 # Set the directory's default permissions so group members can read and write.
 RUN setfacl -R -d -m g:tt:rwx /var/log/tt
 # Create the session and study log directories.
+RUN mkdir -p /var/log/tt/logs
 RUN mkdir -p /var/log/tt/sessions
 RUN mkdir -p /var/log/tt/studies/example
 
