@@ -40,6 +40,7 @@ if($world != '' || $role != '' || $partner != '') {
 ?>
 			<p><a href="https://localhost/play">Click here to choose your own game settings.</a></p>
 			<p><a href="https://localhost/studies/example">Click here to take part in an example study.</a></p>
+			<p><a href="https://localhost/admin">Click here to see the administator tools.</a> (username: <tt>admin</tt>, password: <tt>admin</tt>)</p>
 		</main>
 		<?php include($_SERVER['tt_footer']); ?>
 	</body>

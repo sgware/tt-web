@@ -34,3 +34,6 @@ p {
 		filter: invert(1);
 	}
 }
+
+/* Table column headers in bold. */
+th { font-weight: bold; }

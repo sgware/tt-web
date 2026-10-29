@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Administrator Tools"
+AuthUserFile /var/www/tt/.htpasswd
+Require valid-user

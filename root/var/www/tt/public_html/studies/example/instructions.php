@@ -4,7 +4,6 @@
 		<title>Example Study</title>
 		<?php include($_SERVER['tt_head']); ?>
 		<style>
-			th { font-weight: bold; }
 			.past p { display: none; }
 			.future { display: none; }
 		</style>
@@ -38,7 +37,7 @@
 				<h2>You are finished!</h2>
 				<p>Thank you for participating in this study. The choices you made and questions you answered have been recorded, but we do not record your name, email address, or other identifying information. Please see out <a href="/consent.php">consent page</a> for all the details.</p>
 				<?php echo(summarize_sessions($user->sessions)); ?>
-				<p>Total time played: <?php echo(round($user->getDuration() / 60000, 1)); ?> minutes</p>
+				<p>Total time played: <?php echo(duration($user->getDuration())); ?></p>
 				<blockquote>
 					<p>Check <tt><?php echo(STUDY_LOGS . $study->id); ?></tt> to see this study's data.</p>
 					<p>You can <a href="/studies/example">participate again</a> as a new user.</p>

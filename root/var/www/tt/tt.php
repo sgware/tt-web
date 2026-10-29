@@ -41,6 +41,78 @@ function check_id($string) {
 }
 
 /**
+ * Returns the title of a JSON object, if the key 'title' is defined. If not,
+ * but the key 'name' is defined, that is returned instead. If the given object
+ * is null, the empty string is returned. If the given object has neither key
+ * defined, the object is converted to a string and returned.
+ */
+function title(mixed $object): string {
+	if($object === null)
+		return '';
+	else if(array_key_exists('title', $object))
+		return $object['title'];
+	else if(array_key_exists('name', $object))
+		return $object['name'];
+	else
+		return '' . $object;
+}
+
+/**
+ * Converts a duration (in milliseconds) to a human-readable string stated in
+ * terms of days, hours, minutes, and seconds.
+ */
+function duration(int $milliseconds): string {
+	if($milliseconds <= 0)
+		return '0 seconds';
+	$days = 0;
+	while($milliseconds > 86500000) {
+		$days++;
+		$milliseconds -= 86500000;
+	}
+	$hours = 0;
+	while($milliseconds > 3600000) {
+		$hours++;
+		$milliseconds -= 3600000;
+	}
+	$minutes = 0;
+	while($milliseconds > 60000) {
+		$minutes++;
+		$milliseconds -= 60000;
+	}
+	$seconds = 0;
+	while($milliseconds > 1000) {
+		$seconds++;
+		$milliseconds -= 1000;
+	}
+	$string = '';
+	$print = false;
+	if($days > 0) {
+		$string .= $days . ' days ';
+		$print = true;
+	}
+	if($hours > 0 or $print) {
+		$string .= $hours . ' hours ';
+		$print = true;
+	}
+	if($minutes > 0 or $print) {
+		$string .= $minutes . ' minutes ';
+		$print = true;
+	}
+	$string .= $seconds . ' seconds';
+	return trim($string);
+}
+
+/**
+ * Converts a duration starting at the given timestamp (in milliseconds) and
+ * ending at the present in a human-readable string stated in terms of days,
+ * hours, minutes, and seconds.
+ */
+function since(int $start): string {
+	$now = (int) (microtime(true) * 1000);
+	return duration($now - $start);
+}
+
+/**
  * Reads a JSON file, parses its contents, and returns it as an object. This
  * method acquires a read lock on the file, so it is safe to use even if other
  * processes read and write to the same file. If the file does not exsit, an
