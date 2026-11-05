@@ -3,9 +3,8 @@
 echo "Restarting Tandem Tales..."
 /usr/local/bin/stop_tt_agents
 /usr/local/bin/stop_tt
-/usr/local/bin/await_tt_stop
 /usr/local/bin/stop_ws
-sleep 1
+/usr/local/bin/await_tt_stop
 /usr/local/bin/start_ws
 /usr/local/bin/start_tt
 /usr/local/bin/start_tt_agents
