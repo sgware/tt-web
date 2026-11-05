@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Test
+/opt/tt/agents/test/stop.sh

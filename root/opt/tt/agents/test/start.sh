@@ -1,11 +1,9 @@
 #!/bin/sh
 
-# Wait for Tandem Tales to start.
-/usr/local/bin/await_tt_start
-# Set the agent's password.
-export password="test"
-# Run the Tandem Tales Test Agent
-java \
-  -Djavax.net.ssl.trustStore="/etc/tt/certs/tt-truststore.p12" \
-  -Djavax.net.ssl.trustStorePassword="changeit" \
-	-jar /opt/tt/agents/test/tt-test-agent.jar
+echo "Starting Tandem Tales Test agent in a separate screen..."
+
+# Create a new screen session named 'tta-test' if one does not exist.
+screen -ls | grep -q "tta-test" || screen -dmS "tta-test"
+
+# Start the Tandem Tales Test agent in that screen session.
+screen -S "tta-test" -p 0 -X stuff "/opt/tt/agents/test/start_foreground.sh\n"

@@ -86,7 +86,7 @@ COPY root/opt/tt /opt/tt
 RUN update_tt_server
 RUN update_tt_worlds
 # Download the Tandem Tales Test Agent from GitHub.
-RUN update_tt_test_agent
+RUN /opt/tt/agents/test/update.sh
 
 #-------------------------------------------------------------------------------
 # Tandem Tales Website

@@ -21,8 +21,8 @@ apache2ctl start
 # Start websockify in the background.
 start_ws
 
-# Start the Test Agent in the background.
-sh /opt/tt/agents/test/start_background.sh
+# Start Tandem Tales agents in the background.
+start_tt_agents
 
 # Start the Tandem Tales server in the foreground.
 start_tt_with_db_updates
