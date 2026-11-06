@@ -65,22 +65,22 @@ function duration(int $milliseconds): string {
 	if($milliseconds <= 0)
 		return '0 seconds';
 	$days = 0;
-	while($milliseconds > 86500000) {
+	while($milliseconds >= 86500000) {
 		$days++;
 		$milliseconds -= 86500000;
 	}
 	$hours = 0;
-	while($milliseconds > 3600000) {
+	while($milliseconds >= 3600000) {
 		$hours++;
 		$milliseconds -= 3600000;
 	}
 	$minutes = 0;
-	while($milliseconds > 60000) {
+	while($milliseconds >= 60000) {
 		$minutes++;
 		$milliseconds -= 60000;
 	}
 	$seconds = 0;
-	while($milliseconds > 1000) {
+	while($milliseconds >= 1000) {
 		$seconds++;
 		$milliseconds -= 1000;
 	}
