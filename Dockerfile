@@ -27,6 +27,8 @@ VOLUME /etc/tt/certs
 RUN apt update
 # ACL Tools allow more control over who has access to which files.
 RUN apt install -y acl
+# Service manager allows Tandem Tales to start as a service.
+RUN apt install -y systemd
 # GNU Nano is a simple text editor similar to Notepad.
 RUN apt install -y nano
 # GNU Screen runs commands in detachable terminals.
@@ -54,6 +56,11 @@ RUN rm -rf /var/lib/apt/lists/*
 # Copy custom shell scripts.
 COPY root/usr/local/bin /usr/local/bin
 COPY root/entrypoint.sh /
+# Start Tandem Tales when the computer starts.
+# (This is not needed for a Docker container, but it is useful when installing
+# Tandem Tales on an actual server.)
+COPY root/etc/systemd/system/tt.service /etc/systemd/system/tt.service 
+RUN systemctl enable tt.service
 
 #-------------------------------------------------------------------------------
 # Tandem Tales Group

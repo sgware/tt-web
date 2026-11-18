@@ -1,0 +1,13 @@
+[Unit]
+Description=Start Tandem Tales
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/start_ws
+ExecStart=/usr/local/bin/start_tt
+ExecStart=/usr/local/bin/start_tt_agents
+
+[Install]
+WantedBy=multi-user.target
