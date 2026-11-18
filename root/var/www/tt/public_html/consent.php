@@ -34,10 +34,10 @@
 			<p>If you are the <em>player</em> you will control one character. If you are the <em>game master</em> you will control all the other characters. The game master can stop the player from doing actions but cannot force the player to do anything.</p>
 			<p>There are no right or wrong choices. You should make whatever choices you want. We do want to remind you that your partner might be another person, so please be considerate when making your choices.</p>
 			<h4 id="how-long-does-it-take-to-play">How long does it take to play?</h4>
-			<p>Most people finish a story in under 15 minutes. How long it takes depends on which story you play, how long you and your partner take to make choices, and which choices you make. There is a 3 minutes limit for each choice, but a game could last many turns or only a few turns depending on your choices.</p>
+			<p>Most people finish a story in under 15 minutes. How long it takes depends on which story you play, how long you and your partner take to make choices, and which choices you make. There is a 1 minute limit for each choice, but a game could last many turns or only a few turns depending on your choices.</p>
 			<h4 id="do-i-have-to-finish-the-story">Do I have to finish the story?</h4>
 			<p>You can stop playing at any time by leaving this website or closing your web browser, but if you leave before the story ends, you may not get credit for playing. Sometimes we ask questions at the end of the story. If you leave before answering the questions, you may not get credit for playing.</p>
-			<p>If you take more than 3 minutes to make a choice, or if you leave or close this website accidentally before the end, you may not get credit for playing.</p>
+			<p>If you take more than 1 minute to make a choice, or if you leave or close this website accidentally before the end, you may not get credit for playing.</p>
 			<p>If your partner leaves before the story ends, you <em>can</em> still get credit for playing.</p>
 			<h4 id="can-i-talk-to-my-partner">Can I talk to my partner?</h4>
 			<p>No, you cannot send messages to your partner, and they cannot send messages to you. The only way you can interact with your partner is by choosing what to do next from the list of choices.</p>
